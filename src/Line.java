@@ -63,6 +63,75 @@ public class Line
         this.start = start;
     }
 
+
+
+
+    public Point getIntersection(Line l2) {
+        if((this.isVertical == true) && (l2.isVertical == true)) {
+            if(this.start.getX() == l2.start.getX()) {
+                if((this.start.getY() <= l2.start.getY()) && (this.end.getY() >= l2.start.getY())) {
+                    return new Point(this.start.getX(), l2.start.getY());
+                }
+                else if((this.start.getY() >= l2.start.getY()) && (this.end.getY() <= l2.start.getY())) {
+                    return new Point(this.start.getX(), this.start.getY());
+                }
+                else {
+                    return null;
+                }
+            }
+            else {
+                return null;
+            }
+        }
+        else if((this.isVertical == false) && (l2.isVertical == false)) {
+            if(this.start.getY() == l2.start.getY()) {
+                if((this.start.getX() <= l2.start.getX()) && (this.end.getX() >= l2.start.getX())) {
+                    return new Point(this.start.getX(), this.start.getY());
+                }
+                else if((this.start.getX() >= l2.start.getX()) && (this.end.getX() <= l2.start.getX())) {
+                    return new Point(l2.start.getX(), this.start.getY());
+                }
+                else {
+                    return null;
+                }
+            }
+            else {
+                return null;
+            }
+        }
+        else {
+            if(this.isVertical == true) {
+                if((l2.start.getY() <= this.end.getY()) && (this.start.getY() >= l2.start.getY())) {
+                    if((this.start.getX() <= l2.end.getX()) && (l2.start.getX() >= this.start.getX()))  {
+                        return new Point(this.start.getX(), l2.start.getY());
+                    }
+                    else {
+                        return null;
+                    }
+
+                }
+                else {
+                    return null;
+                }
+            }
+            else {
+                if((this.start.getX() <= l2.end.getX()) && (l2.start.getX() >= this.start.getX())) {
+                    if((l2.start.getY() <= this.end.getY()) && (this.start.getY() >= l2.start.getY()))  {
+                        return new Point(l2.end.getX(), this.start.getY());
+                    }
+                    else {
+                        return null;
+                    }
+
+                }
+                else {
+                    return null;
+                }
+            }
+        }
+
+
+    }
     // ----------------------------------------------------------
     /**
      * Place a description of your method here.
