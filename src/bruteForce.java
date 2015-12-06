@@ -87,7 +87,7 @@ public class bruteForce
         for(Line l : this.lineList) {
             for(Line m : this.lineList) {
                 if(l.doesIntersect(m)) {
-                    intersectionPoints.add(new Intersection(0, 0, l, m));
+                    intersectionPoints.add(new Intersection(l.getIntersection(m), l, m));
                 }
             }
         }

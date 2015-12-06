@@ -10,61 +10,25 @@
  */
 public class Intersection
 {
- private int x;
- private int y;
+
+ private Point Intersect;
  private Line l1;
  private Line l2;
 
  // ----------------------------------------------------------
 /**
  * Create a new Intersection object.
- * @param x1
- * @param y1
+ * @param p
  * @param sLine
  * @param eLine
  */
-public Intersection(int x1, int y1, Line sLine, Line eLine) {
-     setX(x1);
-     setY(y1);
+public Intersection(Point p, Line sLine, Line eLine) {
+
+     setIntersect(p);
      setL1(sLine);
      setL2(eLine);
  }
 
-// ----------------------------------------------------------
-/**
- * @return the x
- */
-public int getX()
-{
-    return x;
-}
-
-// ----------------------------------------------------------
-/**
- * @param x the x to set
- */
-public void setX(int x)
-{
-    this.x = x;
-}
-
-// ----------------------------------------------------------
-/**
- * @return the y
- */
-public int getY()
-{
-    return y;
-}
-
-// ----------------------------------------------------------
-/**
- * @param y the y to set
- */
-public void setY(int y)
-{
-    this.y = y;
-}
 
 // ----------------------------------------------------------
 /**
@@ -100,5 +64,23 @@ public Line getL2()
 public void setL2(Line l2)
 {
     this.l2 = l2;
+}
+
+// ----------------------------------------------------------
+/**
+ * @return the intersect
+ */
+public Point getIntersect()
+{
+    return Intersect;
+}
+
+// ----------------------------------------------------------
+/**
+ * @param intersect the intersect to set
+ */
+public void setIntersect(Point intersect)
+{
+    Intersect = intersect;
 }
 }
