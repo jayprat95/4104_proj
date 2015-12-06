@@ -13,79 +13,18 @@ import java.util.ArrayList;
 
 public class bruteForce
 {
-    private ArrayList<Line> lineList;
 
-    // ----------------------------------------------------------
-    /**
-     * Place a description of your method here.
-     * @param numOfLines
-     */
-    public void generateList(int numOfLines) {
-        int numOfVert = 1 + (int)(Math.random() * ((numOfLines - 1) + 1));
 
-        int numOfHorz = numOfLines - numOfVert;
-
-        generateVertList(numOfVert);
-        generateHorzList(numOfHorz);
-    }
-
-    // ----------------------------------------------------------
-    /**
-     * Place a description of your method here.
-     * @param numOfVert
-     */
-    public void generateVertList(int numOfVert) {
-        for(int i = 0; i < numOfVert; i++) {
-            int x = (int)(Math.random()* (1000000));
-
-            int startY = (int)(Math.random()* (1000000 - 25));
-            Point start = new Point(x, startY);
-            Point end = new Point(x, startY + 25);
-            Line L = new Line(start, end, true);
-            lineList.add(L);
-            start.setL(L);
-            end.setL(L);
-        }
-    }
-
-    // ----------------------------------------------------------
-    /**
-     * Place a description of your method here.
-     * @param numOfHorz
-     */
-    public void generateHorzList(int numOfHorz) {
-        for(int i = 0; i < numOfHorz; i++) {
-            int y = (int)(Math.random()* (1000000));
-
-            int startX = (int)(Math.random()* (1000000 - 25));
-            Point start = new Point(startX, y);
-            Point end = new Point(startX + 25, y);
-            Line L = new Line(start, end, false);
-            lineList.add(L);
-            start.setL(L);
-            end.setL(L);
-        }
-    }
-
-    // ----------------------------------------------------------
-    /**
-     * @return the lineList
-     */
-    public ArrayList<Line> getLineList()
-    {
-        return lineList;
-    }
 
     // ----------------------------------------------------------
     /**
      * Place a description of your method here.
      * @return
      */
-    public ArrayList<Intersection> bruteForceCall() {
+    public ArrayList<Intersection> bruteForceCall(ArrayList<Line> lineList) {
         ArrayList<Intersection> intersectionPoints = new ArrayList<Intersection>();
-        generateList(100);
-        for(Line l : this.lineList) {
-            for(Line m : this.lineList) {
+        for(Line l : lineList) {
+            for(Line m : lineList) {
                 if(l.doesIntersect(m)) {
                     intersectionPoints.add(new Intersection(l.getIntersection(m), l, m));
                 }
