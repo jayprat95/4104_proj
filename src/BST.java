@@ -9,11 +9,6 @@ public class BST<T extends Comparable<? super T>>
 		BinaryNode left; // pointer to the left child
 		BinaryNode right; // pointer to the right child
 		
-		// Initialize a childless binary node.
-		// Pre: elem is not null
-		// Post: (in the new node)
-		// element == elem
-		// left == right == null
 		
 		public BinaryNode( T elem ) 
 		{
@@ -25,11 +20,6 @@ public class BST<T extends Comparable<? super T>>
 			
 		}
 		
-		// Initialize a binary node with children.
-		// Pre: elem is not null
-		// Post: (in the new node)
-		// element == elem
-		// left == lt, right == rt
 		public BinaryNode( T elem, BinaryNode lt, BinaryNode rt ) 
 		{	
 			if(elem != null){
@@ -46,10 +36,6 @@ public class BST<T extends Comparable<? super T>>
 	int pSize; // size limit for node pool
 	
 	
-	// Initialize empty BST with no node pool. 
-	 // Pre: none 
-	 // Post: (in the new tree) 
-	 // root == null, pool == null, pSize = 0 
 	 public BST( ) 
 	 { 	 
 		 root = null;
@@ -57,10 +43,6 @@ public class BST<T extends Comparable<? super T>>
 		 pSize = 0;
 	 } 
 	 
-	 // Initialize empty BST with a node pool of up to pSize nodes. 
-	 // Pre: none 
-	 // Post: (in the new tree) 
-	 // root == null, pool = null, pSize == Sz 
 	 public BST( int Sz ) 
 	 { 
 		 root = null;
@@ -68,9 +50,7 @@ public class BST<T extends Comparable<? super T>>
 		 pSize = Sz;
 	 } 
 	 
-	 // Return true iff BST contains no nodes. 
-	 // Pre: none 
-	 // Post: the binary tree is unchanged 
+	 
 	 public boolean isEmpty( ) 
 	 { 
 		 if (root == null)
