@@ -6,6 +6,7 @@ public class mainClass
 
 
     public ArrayList<Line> lineList;
+    public ArrayList<Point> pointList;
 
     public static void main(String[] args)
     {
@@ -14,9 +15,13 @@ public class mainClass
         gen.generateList(1000);
 
         bruteForce force = new bruteForce();
+
+        long startTime = System.currentTimeMillis();
         ArrayList<Intersection> intersects = force.bruteForceCall(gen.lineList);
+        long endTime = System.currentTimeMillis();
 
         System.out.println("There are " + intersects.size() + " intersections");
+        System.out.println("The Bruteforce took " + (endTime - startTime) + " milliseconds");
 
 
 
@@ -56,6 +61,8 @@ public class mainClass
             this.lineList.add(L);
             start.setL(L);
             end.setL(L);
+            this.pointList.add(start);
+            this.pointList.add(end);
         }
     }
 
@@ -75,6 +82,8 @@ public class mainClass
             this.lineList.add(L);
             start.setL(L);
             end.setL(L);
+            this.pointList.add(start);
+            this.pointList.add(end);
         }
     }
 
