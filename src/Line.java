@@ -67,39 +67,8 @@ public class Line
 
 
     public Point getIntersection(Line l2) {
-        if((this.isVertical == true) && (l2.isVertical == true)) {
-            if(this.start.getX() == l2.start.getX()) {
-                if((this.start.getY() <= l2.start.getY()) && (this.end.getY() >= l2.start.getY())) {
-                    return new Point(this.start.getX(), l2.start.getY());
-                }
-                else if((this.start.getY() >= l2.start.getY()) && (this.end.getY() <= l2.start.getY())) {
-                    return new Point(this.start.getX(), this.start.getY());
-                }
-                else {
-                    return null;
-                }
-            }
-            else {
-                return null;
-            }
-        }
-        else if((this.isVertical == false) && (l2.isVertical == false)) {
-            if(this.start.getY() == l2.start.getY()) {
-                if((this.start.getX() <= l2.start.getX()) && (this.end.getX() >= l2.start.getX())) {
-                    return new Point(this.start.getX(), this.start.getY());
-                }
-                else if((this.start.getX() >= l2.start.getX()) && (this.end.getX() <= l2.start.getX())) {
-                    return new Point(l2.start.getX(), this.start.getY());
-                }
-                else {
-                    return null;
-                }
-            }
-            else {
-                return null;
-            }
-        }
-        else {
+
+        if((this.isVertical && l2.isVertical) == false) {
             if(this.isVertical == true) {
                 if((l2.start.getY() <= this.end.getY()) && (this.start.getY() >= l2.start.getY())) {
                     if((this.start.getX() <= l2.end.getX()) && (l2.start.getX() >= this.start.getX()))  {
@@ -129,6 +98,9 @@ public class Line
                 }
             }
         }
+        else {
+            return null;
+        }
 
 
     }
@@ -140,39 +112,7 @@ public class Line
      */
     public boolean doesIntersect(Line l2) {
 
-        if((this.isVertical == true) && (l2.isVertical == true)) {
-            if(this.start.getX() == l2.start.getX()) {
-                if((this.start.getY() <= l2.start.getY()) && (this.end.getY() >= l2.start.getY())) {
-                    return true;
-                }
-                else if((this.start.getY() >= l2.start.getY()) && (this.end.getY() <= l2.start.getY())) {
-                    return true;
-                }
-                else {
-                    return false;
-                }
-            }
-            else {
-                return false;
-            }
-        }
-        else if((this.isVertical == false) && (l2.isVertical == false)) {
-            if(this.start.getY() == l2.start.getY()) {
-                if((this.start.getX() <= l2.start.getX()) && (this.end.getX() >= l2.start.getX())) {
-                    return true;
-                }
-                else if((this.start.getX() >= l2.start.getX()) && (this.end.getX() <= l2.start.getX())) {
-                    return true;
-                }
-                else {
-                    return false;
-                }
-            }
-            else {
-                return false;
-            }
-        }
-        else {
+        if((this.isVertical && l2.isVertical) == false) {
             if(this.isVertical == true) {
                 if((l2.start.getY() <= this.end.getY()) && (this.start.getY() >= l2.start.getY())) {
                     if((this.start.getX() <= l2.end.getX()) && (l2.start.getX() >= this.start.getX()))  {
@@ -202,6 +142,46 @@ public class Line
                 }
             }
         }
+        else {
+            return false;
+        }
+
+
+//        if((this.isVertical == true) && (l2.isVertical == true)) {
+//            if(this.start.getX() == l2.start.getX()) {
+//                if((this.start.getY() <= l2.start.getY()) && (this.end.getY() >= l2.start.getY())) {
+//                    return true;
+//                }
+//                else if((this.start.getY() >= l2.start.getY()) && (this.end.getY() >= l2.end.getY())) {
+//                    return true;
+//                }
+//                else {
+//                    return false;
+//                }
+//            }
+//            else {
+//                return false;
+//            }
+//        }
+//        else if((this.isVertical == false) && (l2.isVertical == false)) {
+//            if(this.start.getY() == l2.start.getY()) {
+//                if((this.start.getX() <= l2.start.getX()) && (this.end.getX() >= l2.start.getX())) {
+//                    return true;
+//                }
+//                else if((this.start.getX() >= l2.start.getX()) && (this.end.getX() <= l2.start.getX())) {
+//                    return true;
+//                }
+//                else {
+//                    return false;
+//                }
+//            }
+//            else {
+//                return false;
+//            }
+//        }
+//        else {
+//
+//        }
 
 
     }
