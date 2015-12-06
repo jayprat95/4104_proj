@@ -41,7 +41,10 @@ public class bruteForce
             int startY = (int)(Math.random()* (1000000 - 25));
             Point start = new Point(x, startY);
             Point end = new Point(x, startY + 25);
-            lineList.add(new Line(start, end, true));
+            Line L = new Line(start, end, true);
+            lineList.add(L);
+            start.setL(L);
+            end.setL(L);
         }
     }
 
@@ -57,7 +60,10 @@ public class bruteForce
             int startX = (int)(Math.random()* (1000000 - 25));
             Point start = new Point(startX, y);
             Point end = new Point(startX + 25, y);
-            lineList.add(new Line(start, end, false));
+            Line L = new Line(start, end, false);
+            lineList.add(L);
+            start.setL(L);
+            end.setL(L);
         }
     }
 
@@ -81,7 +87,7 @@ public class bruteForce
         for(Line l : this.lineList) {
             for(Line m : this.lineList) {
                 if(l.doesIntersect(m)) {
-                    intersectionPoints.add(new Intersection(0 , 0, l, m));
+                    intersectionPoints.add(new Intersection(0, 0, l, m));
                 }
             }
         }

@@ -22,6 +22,7 @@ public class Line
      * Create a new line object.
      * @param s1
      * @param s2
+     * @param isVert
      */
 
     public Line(Point s1, Point s2, boolean isVert) {
@@ -62,6 +63,12 @@ public class Line
         this.start = start;
     }
 
+    // ----------------------------------------------------------
+    /**
+     * Place a description of your method here.
+     * @param l2
+     * @return
+     */
     public boolean doesIntersect(Line l2) {
 
         if((this.isVertical == true) && (l2.isVertical == true)) {

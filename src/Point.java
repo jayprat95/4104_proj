@@ -3,6 +3,7 @@ public class Point
 {
     private int x;
     private int y;
+    private Line L;
 
     // ----------------------------------------------------------
     /**
@@ -49,6 +50,24 @@ public class Point
     public void setY(int y)
     {
         this.y = y;
+    }
+
+    // ----------------------------------------------------------
+    /**
+     * @return the l
+     */
+    public Line getL()
+    {
+        return L;
+    }
+
+    // ----------------------------------------------------------
+    /**
+     * @param l the l to set
+     */
+    public void setL(Line l)
+    {
+        L = l;
     }
 
 
