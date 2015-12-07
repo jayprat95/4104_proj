@@ -62,6 +62,14 @@ public class Line implements Comparable<Object>
     {
         this.start = start;
     }
+    // ----------------------------------------------------------
+    /**
+     * @return the line direction
+     */
+    public boolean isVertical()
+    {
+        return isVertical;
+    }
 
 
 

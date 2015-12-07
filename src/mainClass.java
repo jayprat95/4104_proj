@@ -29,7 +29,7 @@ public class mainClass
         endTime = System.currentTimeMillis();
 
         System.out.println("There are " + sweepintersects.size() + " intersections");
-        System.out.println("The Bruteforce took " + (endTime - startTime) + " milliseconds");
+        System.out.println("The Line Sweep took " + (endTime - startTime) + " milliseconds");
 
 
     }
