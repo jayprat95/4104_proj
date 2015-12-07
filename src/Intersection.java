@@ -75,6 +75,28 @@ public Point getIntersect()
     return Intersect;
 }
 
+public Boolean equals(Intersection i) {
+    if(this.l1.equals(i.l1)) {
+        if(this.l2.equals(i.l2)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    else if(this.l1.equals(i.l2)) {
+        if(this.l2.equals(i.l1)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    else {
+        return false;
+    }
+}
+
 // ----------------------------------------------------------
 /**
  * @param intersect the intersect to set
