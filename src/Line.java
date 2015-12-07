@@ -11,7 +11,7 @@
 
 
 
-public class Line
+public class Line implements Comparable<Object>
 {
     private Point start;
     private Point end;
@@ -185,4 +185,15 @@ public class Line
 
 
     }
+	@Override
+	public int compareTo(Object o) {
+		Line l = (Line)(o);
+		if (this.getStart().getX() == l.getStart().getX()) {
+			return 0;
+		}
+		else if (this.getStart().getX() > l.getStart().getX()) {
+			return 1;
+		}
+		return -1;
+	}
 }

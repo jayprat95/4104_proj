@@ -10,21 +10,26 @@ public class mainClass
 
     public static void main(String[] args)
     {
-        // TODO Auto-generated method stub
         mainClass gen = new mainClass();
         gen.generateList(1000);
 
         bruteForce force = new bruteForce();
 
         long startTime = System.currentTimeMillis();
-        ArrayList<Intersection> intersects = force.bruteForceCall(gen.lineList);
+        ArrayList<Intersection> bruteintersects = force.bruteForceCall(gen.lineList);
         long endTime = System.currentTimeMillis();
 
-        System.out.println("There are " + intersects.size() + " intersections");
+        System.out.println("There are " + bruteintersects.size() + " intersections");
         System.out.println("The Bruteforce took " + (endTime - startTime) + " milliseconds");
 
+        lineSweep sweep = new lineSweep(gen.pointList);
+        
+        startTime = System.currentTimeMillis();
+        ArrayList<Intersection> sweepintersects = sweep.generateIntersections();
+        endTime = System.currentTimeMillis();
 
-
+        System.out.println("There are " + sweepintersects.size() + " intersections");
+        System.out.println("The Bruteforce took " + (endTime - startTime) + " milliseconds");
 
 
     }
