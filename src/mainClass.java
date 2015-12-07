@@ -7,6 +7,8 @@ public class mainClass
 
     public ArrayList<Line> lineList;
     public ArrayList<Point> pointList;
+    private static final int GRIDSIZE = 1000;
+    private static final int NUMLINES = 100;
     
     public mainClass() {
     	lineList = new ArrayList<Line>();
@@ -16,7 +18,7 @@ public class mainClass
     public static void main(String[] args)
     {
         mainClass gen = new mainClass();
-        gen.generateList(10);
+        gen.generateList(NUMLINES);
 
         bruteForce force = new bruteForce();
 
@@ -62,9 +64,9 @@ public class mainClass
      */
     public void generateVertList(int numOfVert) {
         for(int i = 0; i < numOfVert; i++) {
-            int x = (int)(Math.random()* (1000000));
+            int x = (int)(Math.random()* (GRIDSIZE));
 
-            int startY = (int)(Math.random()* (1000000 - 25));
+            int startY = (int)(Math.random()* (GRIDSIZE - 25));
             Point start = new Point(x, startY);
             Point end = new Point(x, startY - 25);
             Line L = new Line(start, end, true);
@@ -83,9 +85,9 @@ public class mainClass
      */
     public void generateHorzList(int numOfHorz) {
         for(int i = 0; i < numOfHorz; i++) {
-            int y = (int)(Math.random()* (1000000));
+            int y = (int)(Math.random()* (GRIDSIZE));
 
-            int startX = (int)(Math.random()* (1000000 - 25));
+            int startX = (int)(Math.random()* (GRIDSIZE - 25));
             Point start = new Point(startX, y);
             Point end = new Point(startX + 25, y);
             Line L = new Line(start, end, false);
