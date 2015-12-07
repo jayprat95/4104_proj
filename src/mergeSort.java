@@ -15,8 +15,26 @@ public class mergeSort {
 	public mergeSort(ArrayList<Point> p) {
 		points = p;
 		sorted = sort(points);
+		endPointCheck(sorted);
 	}
 	
+	private void endPointCheck(ArrayList<Point> p) {
+		for (int i = 0; i < p.size(); i++) {
+			Point current = p.get(i);
+			if (!current.getL().isVertical()) { // If Horizontal
+				if (current == current.getL().getStart()) {
+					int end = p.indexOf(current.getL().getEnd());
+					if (i > end) {
+						Point temp = p.get(i);
+						p.set(i, p.get(end));
+						p.set(end, temp);
+					}
+				}
+			}
+		}
+		
+	}
+
 	public ArrayList<Point> getSorted() {
 		return sorted;
 	}
@@ -28,11 +46,14 @@ public class mergeSort {
 		}
 		
 		// Else, split the array in two and sort each half
-		ArrayList<Point> first = 
-				(ArrayList<Point>) p.subList(0, (int)(p.size()/2));
-		ArrayList<Point> second = 
-				(ArrayList<Point>) p.subList((int)(p.size()/2) + 1, p.size() - 1);
-		
+		ArrayList<Point> first = new ArrayList<Point>();
+		for (int i = 0; i < (int)(p.size()/2); i++) {
+			first.add(p.get(i));
+		}
+		ArrayList<Point> second = new ArrayList<Point>();
+		for (int i = (int)(p.size()/2); i < p.size(); i++) {
+			second.add(p.get(i));
+		}
 		sort(first);
 		sort(second);
 		
@@ -47,7 +68,7 @@ public class mergeSort {
 		int rindex = 0;
 		
 		while (findex < f.size() && sindex < s.size()) {
-            if (f.get(findex).getY() < s.get(sindex).getY()) {
+            if (f.get(findex).getY() >= s.get(sindex).getY()) {
                 r.set(rindex, f.get(findex));
                 findex++;
             }
@@ -57,7 +78,7 @@ public class mergeSort {
             }
             rindex++;
         }
-		if (findex != f.size() - 1) {
+		if (findex != f.size()) {
 			for (int i = findex; i < f.size(); i++) {
 				if (rindex < r.size()) {
 					r.set(rindex, f.get(i));
@@ -65,7 +86,7 @@ public class mergeSort {
 				}
 			}
 		}
-		if (sindex != s.size() - 1) {
+		if (sindex != s.size()) {
 			for (int i = sindex; i < s.size(); i++) {
 				if (rindex < r.size()) {
 					r.set(rindex, s.get(i));

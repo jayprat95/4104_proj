@@ -7,11 +7,16 @@ public class mainClass
 
     public ArrayList<Line> lineList;
     public ArrayList<Point> pointList;
+    
+    public mainClass() {
+    	lineList = new ArrayList<Line>();
+    	pointList = new ArrayList<Point>();
+    }
 
     public static void main(String[] args)
     {
         mainClass gen = new mainClass();
-        gen.generateList(1000);
+        gen.generateList(10);
 
         bruteForce force = new bruteForce();
 
@@ -61,7 +66,7 @@ public class mainClass
 
             int startY = (int)(Math.random()* (1000000 - 25));
             Point start = new Point(x, startY);
-            Point end = new Point(x, startY + 25);
+            Point end = new Point(x, startY - 25);
             Line L = new Line(start, end, true);
             this.lineList.add(L);
             start.setL(L);

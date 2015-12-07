@@ -25,7 +25,7 @@ public class bruteForce
         ArrayList<Intersection> intersectionPoints = new ArrayList<Intersection>();
         for(Line l : lineList) {
             for(Line m : lineList) {
-                if(l.doesIntersect(m)) {
+                if(l.doesIntersect(m) && l != m) {
                     intersectionPoints.add(new Intersection(l.getIntersection(m), l, m));
                 }
             }

@@ -44,6 +44,7 @@ public class lineSweep {
 					checkForIntersect(current.getL());
 				}
 				else {
+					checkForIntersect(current.getL());
 					status.remove(current.getL());
 					neighbors.remove(current.getL());
 				}
