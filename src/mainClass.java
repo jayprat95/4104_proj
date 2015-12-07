@@ -8,8 +8,8 @@ public class mainClass
     public ArrayList<Line> lineList;
     public ArrayList<Point> pointList;
     private static final int GRIDSIZE = 100;
-    private static final int NUMLINES = 10;
-    
+    private static final int NUMLINES = 50;
+
     public mainClass() {
     	lineList = new ArrayList<Line>();
     	pointList = new ArrayList<Point>();
@@ -30,7 +30,7 @@ public class mainClass
         System.out.println("The Bruteforce took " + (endTime - startTime) + " milliseconds");
 
         lineSweep sweep = new lineSweep(gen.pointList);
-        
+
         startTime = System.currentTimeMillis();
         ArrayList<Intersection> sweepintersects = sweep.generateIntersections();
         endTime = System.currentTimeMillis();

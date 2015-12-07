@@ -16,8 +16,8 @@ public class LineTest
     @Test
     public void testVertical()
     {
-        Line l1 = new Line(new Point(2, 0), new Point(2, 4), false);
-        Line l2 = new Line(new Point(1, 2), new Point(5, 2), true);
+        Line l1 = new Line(new Point(25, 25), new Point(25, 0), true);
+        Line l2 = new Line(new Point(0, 20), new Point(25, 20), false);
 
         assertTrue(l1.doesIntersect(l2));
 
