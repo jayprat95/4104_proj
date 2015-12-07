@@ -155,44 +155,23 @@ public class Line implements Comparable<Object>
         }
 
 
-//        if((this.isVertical == true) && (l2.isVertical == true)) {
-//            if(this.start.getX() == l2.start.getX()) {
-//                if((this.start.getY() <= l2.start.getY()) && (this.end.getY() >= l2.start.getY())) {
-//                    return true;
-//                }
-//                else if((this.start.getY() >= l2.start.getY()) && (this.end.getY() >= l2.end.getY())) {
-//                    return true;
-//                }
-//                else {
-//                    return false;
-//                }
-//            }
-//            else {
-//                return false;
-//            }
-//        }
-//        else if((this.isVertical == false) && (l2.isVertical == false)) {
-//            if(this.start.getY() == l2.start.getY()) {
-//                if((this.start.getX() <= l2.start.getX()) && (this.end.getX() >= l2.start.getX())) {
-//                    return true;
-//                }
-//                else if((this.start.getX() >= l2.start.getX()) && (this.end.getX() <= l2.start.getX())) {
-//                    return true;
-//                }
-//                else {
-//                    return false;
-//                }
-//            }
-//            else {
-//                return false;
-//            }
-//        }
-//        else {
-//
-//        }
-
-
     }
+
+    // ----------------------------------------------------------
+    /**
+     * Place a description of your method here.
+     * @param l2
+     * @return
+     */
+    public boolean equals(Line l2) {
+        if(this.start.equals(l2.start) && this.end.equals(l2.end)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
 	@Override
 	public int compareTo(Object o) {
 		Line l = (Line)(o);

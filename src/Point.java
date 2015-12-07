@@ -52,6 +52,15 @@ public class Point
         this.y = y;
     }
 
+    public boolean equals(Point p) {
+        if((this.x == p.x) && (this.y == p.y)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
     // ----------------------------------------------------------
     /**
      * @return the l
