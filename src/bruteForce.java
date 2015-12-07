@@ -27,26 +27,51 @@ public class bruteForce
             for(Line m : lineList) {
                 if(l.doesIntersect(m)) {
                     boolean add = false;
-                    for(Intersection i : intersectionPoints) {
-                        if((l.equals(i.getL1()))) {
-                            if(m.equals(i.getL2())) {
+                    for(Intersection i  : intersectionPoints) {
+                        Line l1 = i.getL1();
+                        Line l2 = i.getL2();
+
+                        if(l.equals(l2)) {
+                            if(m.equals(l1)) {
                                 add = true;
                                 break;
+
                             }
                         }
-                        else if(m.equals(i.getL1())) {
-                            if(l.equals(i.getL2())) {
+                        else if(m.equals(l2)) {
+                            if(l.equals(l1) ) {
                                 add = true;
-                                break;
+
                             }
                         }
+
+
+
                     }
-                    if(!add) {
+
+                    if(add == false) {
                         intersectionPoints.add(new Intersection(l.getIntersection(m), l, m));
+
                     }
-                    else {
-                        System.out.println("This has run");
-                    }
+//                    boolean add = false;
+//                    for(Intersection i : intersectionPoints) {
+//                        if((l.equals(i.getL1()))) {
+//                            if(m.equals(i.getL2())) {
+//                                add = true;
+//                            }
+//                        }
+//                        else if(m.equals(i.getL1())) {
+//                            if(l.equals(i.getL2())) {
+//                                add = true;
+//                            }
+//                        }
+//                    }
+//                    if(!add) {
+//                        intersectionPoints.add(new Intersection(l.getIntersection(m), l, m));
+//                    }
+//                    else {
+//                        System.out.println("This has run");
+//                    }
 
                 }
             }

@@ -120,7 +120,7 @@ public class Line implements Comparable<Object>
      */
     public boolean doesIntersect(Line l2) {
 
-        if((this.isVertical && l2.isVertical) == false) {
+        if((this.isVertical && l2.isVertical) == false && !((this.isVertical == false) && (l2.isVertical == false))) {
             if(this.isVertical == true) {
                 if((l2.start.getY() <= this.end.getY()) && (this.start.getY() >= l2.start.getY())) {
                     if((this.start.getX() <= l2.end.getX()) && (l2.start.getX() >= this.start.getX()))  {
@@ -155,6 +155,13 @@ public class Line implements Comparable<Object>
         }
 
 
+    }
+
+
+
+    public String toString() {
+        return "(" + this.start.getX() + "," + this.start.getY() + ") to ("
+            + this.end.getX() + "," + this.end.getY() + ")";
     }
 
     // ----------------------------------------------------------
