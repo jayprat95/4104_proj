@@ -18,13 +18,11 @@ public class bruteForceTest
     public void test()
     {
         ArrayList<Line> aList = new ArrayList<Line>();
-        Line l1 = new Line(new Point(0, 0), new Point(0, 4), true);
-        Line l2 = new Line(new Point(2, -2), new Point(2, 2), false);
-        Line l3 = new Line(new Point(-8, 8), new Point(-8, 10), true);
+        Line l1 = new Line(new Point(4, 0), new Point(4, 4), true);
+        Line l2 = new Line(new Point(3, 2), new Point(5, 2), false);
 
         aList.add(l1);
         aList.add(l2);
-        aList.add(l3);
 
 
         bruteForce force = new bruteForce();

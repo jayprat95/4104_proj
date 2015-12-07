@@ -123,33 +123,31 @@ public class Line implements Comparable<Object>
         if(this.isVertical && l2.isVertical) {
             return false;
         }
-        else if(this.isVertical == false && l2.isVertical == false) {
+        else if((this.isVertical == false) && (l2.isVertical == false)) {
             return false;
         }
         else {
-            if(this.isVertical == true) {
-                if((l2.start.getY() <= this.end.getY()) && (this.start.getY() >= l2.start.getY())) {
-                    if((this.start.getX() <= l2.end.getX()) && (l2.start.getX() >= this.start.getX()))  {
+            if(this.isVertical) {
+                if(this.start.getY() >= l2.getStart().getY() && this.end.getY() <= l2.getStart().getY()) {
+                    if((this.start.getX() >= l2.getStart().getX()) && (this.start.getX() <= l2.getEnd().getX())) {
                         return true;
                     }
                     else {
                         return false;
                     }
-
                 }
                 else {
                     return false;
                 }
             }
             else {
-                if((this.start.getX() <= l2.end.getX()) && (l2.start.getX() >= this.start.getX())) {
-                    if((l2.start.getY() <= this.end.getY()) && (this.start.getY() >= l2.start.getY()))  {
+                if(this.start.getY() <= l2.getStart().getY() && this.start.getY() >= l2.getEnd().getY()) {
+                    if(this.start.getX() <= l2.getStart().getX() && this.end.getX() >= l2.getStart().getX()) {
                         return true;
                     }
                     else {
                         return false;
                     }
-
                 }
                 else {
                     return false;
