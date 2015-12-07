@@ -7,8 +7,8 @@ public class mainClass
 
     public ArrayList<Line> lineList;
     public ArrayList<Point> pointList;
-    private static final int GRIDSIZE = 1000;
-    private static final int NUMLINES = 100;
+    private static final int GRIDSIZE = 100;
+    private static final int NUMLINES = 10;
     
     public mainClass() {
     	lineList = new ArrayList<Line>();
