@@ -76,39 +76,42 @@ public class Line implements Comparable<Object>
 
     public Point getIntersection(Line l2) {
 
-        if((this.isVertical && l2.isVertical) == false) {
-            if(this.isVertical == true) {
-                if((l2.start.getY() <= this.end.getY()) && (this.start.getY() >= l2.start.getY())) {
-                    if((this.start.getX() <= l2.end.getX()) && (l2.start.getX() >= this.start.getX()))  {
-                        return new Point(this.start.getX(), l2.start.getY());
+
+        if(this.isVertical && l2.isVertical) {
+            return null;
+        }
+        else if((this.isVertical == false) && (l2.isVertical == false)) {
+            return null;
+        }
+        else {
+            if(this.isVertical) {
+                if(this.start.getY() >= l2.getStart().getY() && this.end.getY() <= l2.getStart().getY()) {
+                    if((this.start.getX() >= l2.getStart().getX()) && (this.start.getX() <= l2.getEnd().getX())) {
+                        return new Point( this.start.getX(),l2.getStart().getY());
                     }
                     else {
                         return null;
                     }
-
                 }
                 else {
                     return null;
                 }
             }
             else {
-                if((this.start.getX() <= l2.end.getX()) && (l2.start.getX() >= this.start.getX())) {
-                    if((l2.start.getY() <= this.end.getY()) && (this.start.getY() >= l2.start.getY()))  {
-                        return new Point(l2.end.getX(), this.start.getY());
+                if(this.start.getY() <= l2.getStart().getY() && this.start.getY() >= l2.getEnd().getY()) {
+                    if(this.start.getX() <= l2.getStart().getX() && this.end.getX() >= l2.getStart().getX()) {
+                        return new Point( l2.getStart().getX(),this.getStart().getY());
                     }
                     else {
                         return null;
                     }
-
                 }
                 else {
                     return null;
                 }
             }
         }
-        else {
-            return null;
-        }
+
 
 
     }

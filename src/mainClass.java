@@ -25,6 +25,9 @@ public class mainClass
 
         long startTime = System.currentTimeMillis();
         ArrayList<Intersection> bruteintersects = force.bruteForceCall(gen.lineList);
+        for(Intersection i: bruteintersects) {
+            System.out.println("L1: " + i.getL1().toString() + " L2: " + i.getL2().toString() + " Point: " + i.getIntersect().toString());
+        }
         long endTime = System.currentTimeMillis();
 
         System.out.println("There are " + bruteintersects.size() + " intersections");
@@ -34,6 +37,9 @@ public class mainClass
 
         startTime = System.currentTimeMillis();
         ArrayList<Intersection> sweepintersects = sweep.generateIntersections();
+        for(Intersection i: sweepintersects) {
+            System.out.println("L1: " + i.getL1().toString() + " L2: " + i.getL2().toString());
+        }
         endTime = System.currentTimeMillis();
 
         System.out.println("There are " + sweepintersects.size() + " intersections");

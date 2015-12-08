@@ -1,3 +1,5 @@
+import javax.swing.Spring;
+
 
 public class Point
 {
@@ -59,6 +61,10 @@ public class Point
         else {
             return false;
         }
+    }
+
+    public String toString() {
+        return "(" + this.x + ", " + this.y +")";
     }
 
     // ----------------------------------------------------------
