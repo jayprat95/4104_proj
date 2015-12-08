@@ -184,7 +184,13 @@ public class Line implements Comparable<Object>
 	public int compareTo(Object o) {
 		Line l = (Line)(o);
 		if (this.getStart().getX() == l.getStart().getX()) {
-			return 0;
+			if (this.getStart().getY() == l.getStart().getY()) {
+				return 0;
+			}
+			else if(this.getStart().getY() > l.getStart().getY()) {
+				return -1;
+			}
+			return 1;
 		}
 		else if (this.getStart().getX() > l.getStart().getX()) {
 			return 1;

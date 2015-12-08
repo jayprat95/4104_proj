@@ -69,6 +69,16 @@ public class lineSweep {
 			}
 			next = status.higher(next);
 		}
+		
+		Line prev = status.lower(l);
+		while (prev != null && prev.getStart().getX() == l.getStart().getX()) {
+			if (prev.isVertical() && l.doesIntersect(prev)) {
+				Point p = l.getIntersection(prev);
+				Intersection intersect = new Intersection(p,l,prev);
+				intersectionList.add(intersect);
+			}
+			prev = status.lower(prev);
+		}
 	}
 	
 }
