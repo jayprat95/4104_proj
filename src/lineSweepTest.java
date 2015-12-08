@@ -20,7 +20,13 @@ public class lineSweepTest {
         throws Exception
     {
 		points = new ArrayList<Point>();
-		Point p1 = new Point(0, 25);
+    }
+
+
+    @Test
+    public void test()
+    {
+    	Point p1 = new Point(0, 25);
 		Point p2 = new Point(25, 25);
 		Line l1= new Line(p1, p2, false);
 		p1.setL(l1);
@@ -100,14 +106,52 @@ public class lineSweepTest {
 		points.add(p18);
 		points.add(p19);
 		points.add(p20);
-    }
-
-
-    @Test
-    public void test()
-    {
+		
     	lineSweep sweep = new lineSweep(points);
     	ArrayList<Intersection> list = sweep.generateIntersections();
     	assertEquals(5, list.size());
     }
+    
+    @Test
+    public void test2()
+    {
+    	Point p1 = new Point(69, 79);
+		Point p2 = new Point(69, 54);
+		Line l1= new Line(p1, p2, true);
+		p1.setL(l1);
+		p2.setL(l1);
+		
+		Point p3 = new Point(64, 77);
+		Point p4 = new Point(89, 77);
+		Line l2= new Line(p3, p4, false);
+		p3.setL(l2);
+		p4.setL(l2);
+		
+		Point p5 = new Point(63, 77);
+		Point p6 = new Point(88, 77);
+		Line l3= new Line(p5, p6, false);
+		p5.setL(l3);
+		p6.setL(l3);
+		
+		Point p7 = new Point(69, 95);
+		Point p8 = new Point(69, 70);
+		Line l4= new Line(p7, p8, true);
+		p7.setL(l4);
+		p8.setL(l4);
+		
+		points.add(p1);
+		points.add(p2);
+		points.add(p3);
+		points.add(p4);
+		points.add(p5);
+		points.add(p6);
+		points.add(p7);
+		points.add(p8);
+		
+		lineSweep sweep = new lineSweep(points);
+    	ArrayList<Intersection> list = sweep.generateIntersections();
+    	assertEquals(4, list.size());
+    }
+    
+    
 }

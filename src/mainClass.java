@@ -41,7 +41,7 @@ public class mainClass
             System.out.println("L1: " + i.getL1().toString() + " L2: " + i.getL2().toString());
         }
         endTime = System.currentTimeMillis();
-
+        System.out.println("There are " + bruteintersects.size() + " intersections");
         System.out.println("There are " + sweepintersects.size() + " intersections");
         System.out.println("The Line Sweep took " + (endTime - startTime) + " milliseconds");
 
