@@ -1,3 +1,4 @@
+import java.util.HashSet;
 import java.util.ArrayList;
 
 
@@ -84,10 +85,16 @@ public class mainClass
      * @param numOfHorz
      */
     public void generateHorzList(int numOfHorz) {
+        HashSet<Integer> points = new HashSet<Integer>();
         for(int i = 0; i < numOfHorz; i++) {
             int y = (int)(Math.random()* (GRIDSIZE));
 
+
             int startX = (int)(Math.random()* (GRIDSIZE - 25));
+            while(points.contains(startX)) {
+                startX = (int)(Math.random()* (GRIDSIZE - 25));
+            }
+            points.add(startX);
             Point start = new Point(startX, y);
             Point end = new Point(startX + 25, y);
             Line L = new Line(start, end, false);
