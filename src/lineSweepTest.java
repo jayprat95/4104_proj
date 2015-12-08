@@ -139,6 +139,79 @@ public class lineSweepTest {
 		p7.setL(l4);
 		p8.setL(l4);
 		
+		Point p9 = new Point(80, 95);
+		Point p10 = new Point(80, 70);
+		Line l5= new Line(p9, p10, true);
+		p9.setL(l5);
+		p10.setL(l5);
+		
+		Point p11 = new Point(49, 95);
+		Point p12 = new Point(49, 70);
+		Line l6= new Line(p11, p12, true);
+		p11.setL(l6);
+		p12.setL(l6);
+		
+		Point p13 = new Point(63, 67);
+		Point p14 = new Point(88, 67);
+		Line l7= new Line(p13, p14, false);
+		p13.setL(l7);
+		p14.setL(l7);
+		
+		Point p15 = new Point(63, 87);
+		Point p16 = new Point(88, 87);
+		Line l8= new Line(p15, p16, false);
+		p15.setL(l8);
+		p16.setL(l8);
+		
+		points.add(p1);
+		points.add(p2);
+		points.add(p3);
+		points.add(p4);
+		points.add(p5);
+		points.add(p6);
+		points.add(p7);
+		points.add(p8);
+		points.add(p9);
+		points.add(p10);
+		points.add(p11);
+		points.add(p12);
+		points.add(p13);
+		points.add(p14);
+		points.add(p15);
+		points.add(p16);
+		
+		lineSweep sweep = new lineSweep(points);
+    	ArrayList<Intersection> list = sweep.generateIntersections();
+    	assertEquals(7, list.size());
+    }
+    
+    @Test
+    public void test3()
+    {
+    	Point p1 = new Point(69, 79);
+		Point p2 = new Point(69, 54);
+		Line l1= new Line(p1, p2, true);
+		p1.setL(l1);
+		p2.setL(l1);
+		
+		Point p3 = new Point(64, 77);
+		Point p4 = new Point(89, 77);
+		Line l2= new Line(p3, p4, false);
+		p3.setL(l2);
+		p4.setL(l2);
+		
+		Point p5 = new Point(63, 77);
+		Point p6 = new Point(88, 77);
+		Line l3= new Line(p5, p6, false);
+		p5.setL(l3);
+		p6.setL(l3);
+		
+		Point p7 = new Point(69, 95);
+		Point p8 = new Point(69, 70);
+		Line l4= new Line(p7, p8, true);
+		p7.setL(l4);
+		p8.setL(l4);
+		
 		points.add(p1);
 		points.add(p2);
 		points.add(p3);
@@ -152,6 +225,5 @@ public class lineSweepTest {
     	ArrayList<Intersection> list = sweep.generateIntersections();
     	assertEquals(4, list.size());
     }
-    
     
 }
