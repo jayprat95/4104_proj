@@ -182,7 +182,7 @@ public class lineSweepTest {
 		
 		lineSweep sweep = new lineSweep(points);
     	ArrayList<Intersection> list = sweep.generateIntersections();
-    	assertEquals(7, list.size());
+    	assertEquals(9, list.size());
     }
     
     @Test
