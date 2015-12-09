@@ -23,6 +23,7 @@ public class lineSweep {
 	/**
 	 * lineSweep Constructor
 	 * @param list the sorted list of points
+
 	 */
 	public lineSweep(ArrayList<Point> list) {
 		eventList = createEventList(list);
@@ -39,7 +40,7 @@ public class lineSweep {
 		int eindex = 0; // The event list index
 		while (eindex < eventList.size()) {
 			Point current = eventList.get(eindex);
-			
+
 			// Figure out what to do based on the point type
 			if (current.getL().isVertical()) { // Vertical Line
 				if (current == current.getL().getStart()) {
@@ -62,9 +63,9 @@ public class lineSweep {
 		}
 		return intersectionList;
 	}
-	
+
 	/**
-	 * Creates the event list by performing a merge sort on the given list of 
+	 * Creates the event list by performing a merge sort on the given list of
 	 * points.
 	 * @param input is the list of points of all the line segments
 	 * @return the list of points sorted by their x-coordinate
@@ -88,7 +89,7 @@ public class lineSweep {
 			}
 			next = status.higher(next);
 		}
-		
+
 		Line prev = status.lower(l);
 		while (prev != null && prev.getStart().getX() == l.getStart().getX()) {
 			if (prev.isVertical() && l.doesIntersect(prev)) {
@@ -99,5 +100,5 @@ public class lineSweep {
 			prev = status.lower(prev);
 		}
 	}
-	
+
 }
