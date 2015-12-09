@@ -25,9 +25,6 @@ public class mainClass
 
         long startTime = System.currentTimeMillis();
         ArrayList<Intersection> bruteintersects = force.bruteForceCall(gen.lineList);
-        for(Intersection i: bruteintersects) {
-            System.out.println("L1: " + i.getL1().toString() + " L2: " + i.getL2().toString() + " Point: " + i.getIntersect().toString());
-        }
         long endTime = System.currentTimeMillis();
 
         System.out.println("There are " + bruteintersects.size() + " intersections");
@@ -37,11 +34,7 @@ public class mainClass
 
         startTime = System.currentTimeMillis();
         ArrayList<Intersection> sweepintersects = sweep.generateIntersections();
-        for(Intersection i: sweepintersects) {
-            System.out.println("L1: " + i.getL1().toString() + " L2: " + i.getL2().toString());
-        }
         endTime = System.currentTimeMillis();
-        System.out.println("There are " + bruteintersects.size() + " intersections");
         System.out.println("There are " + sweepintersects.size() + " intersections");
         System.out.println("The Line Sweep took " + (endTime - startTime) + " milliseconds");
 
@@ -51,28 +44,35 @@ public class mainClass
 
     // ----------------------------------------------------------
     /**
-     * Place a description of your method here.
-     * @param numOfLines
+     * Populates a list of vertical and horizontal lines
+     * @param numOfLines number of lines to generate
      */
     public void generateList(int numOfLines) {
+
+        //figure out how many vertical lines to generate
         int numOfVert = 1 + (int)(Math.random() * ((numOfLines - 1) + 1));
 
+        //figure out how many horizontal lines to generate
         int numOfHorz = numOfLines - numOfVert;
         this.lineList = new ArrayList<Line>(numOfLines);
 
+        //generate the lines
         generateVertList(numOfVert);
         generateHorzList(numOfHorz);
     }
 
     // ----------------------------------------------------------
     /**
-     * Place a description of your method here.
-     * @param numOfVert
+     * Populates a list of vertical lines
+     * @param numOfVert number of vertical lines to generate
      */
     public void generateVertList(int numOfVert) {
+
         for(int i = 0; i < numOfVert; i++) {
+            //pick x coordinate of starting point
             int x = (int)(Math.random()* (GRIDSIZE));
 
+            //pick y coordinate of starting point
             int startY = (int)(Math.random()* (GRIDSIZE - 25));
             Point start = new Point(x, startY);
             Point end = new Point(x, startY - 25);
@@ -87,15 +87,18 @@ public class mainClass
 
     // ----------------------------------------------------------
     /**
-     * Place a description of your method here.
-     * @param numOfHorz
+     * Generates a list of horizontal lines
+     * @param numOfHorz number of horizontal lines to generate
      */
     public void generateHorzList(int numOfHorz) {
         HashSet<Integer> points = new HashSet<Integer>();
         for(int i = 0; i < numOfHorz; i++) {
+
+            //pick the y coordinate of the starting point
             int y = (int)(Math.random()* (GRIDSIZE));
 
 
+            //pick the x coordinate of the starting point
             int startX = (int)(Math.random()* (GRIDSIZE - 25));
             while(points.contains(startX)) {
                 startX = (int)(Math.random()* (GRIDSIZE - 25));
