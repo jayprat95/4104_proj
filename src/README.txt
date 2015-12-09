@@ -2,9 +2,9 @@
 * Project 1 Phase II README *
 *****************************
 Names:
-    Ryan Munz
-    Jayanith Prathipati
-    Omid Anvar
+    Ryan Munz (rtm8889)
+    Jayanth Prathipati (jayanth)
+    Omid Anvar (omid8)
 
 ===============================================================================
 Files Included With Project:
