@@ -1,7 +1,12 @@
 import java.util.ArrayList;
 
 /**
- * 
+ * This class takes a list of points that represent vertical and horizontal and
+ * performs a merge sort on the points to sort them by their Y value in 
+ * descending order. Then the points with the same Y values are then sorted by
+ * precedence where Vertical start points have the highest, horizontal start 
+ * points are next, finally the vertical or horizontal end points. The newly
+ * sorted list is then returned.
  */
 
 /**
@@ -23,7 +28,7 @@ public class mergeSort {
 	 * precedence so that Vertical Start points have the highest precedence, 
 	 * horizontal start is next, finally the vertical or horizontal end points.
 	 * 
-	 * @param p
+	 * @param p the list that is merge sorted
 	 */
 	private ArrayList<Point> endPointCheck(ArrayList<Point> list) {
 		int pindex = 0;
@@ -66,6 +71,11 @@ public class mergeSort {
 		return p;
 	}
 	
+	/**
+	 * Sorts the sub-group by precedence.
+	 * @param g the sub group that have the same Y value
+	 * @return the newly sorted list
+	 */
 	private ArrayList<Point> sortGroup(ArrayList<Point> g) {
 		ArrayList<Point> sorted = new ArrayList<Point>();
 		sorted.add(g.get(0));
@@ -119,28 +129,21 @@ public class mergeSort {
 		}
 		return sorted;
 	}
-	
-//	private void endPointCheck(ArrayList<Point> p) {
-//		for (int i = 0; i < p.size(); i++) {
-//			Point current = p.get(i);
-//			if (!current.getL().isVertical()) { // If Horizontal
-//				if (current == current.getL().getStart()) {
-//					int end = p.indexOf(current.getL().getEnd());
-//					if (i > end) {
-//						Point temp = p.get(i);
-//						p.set(i, p.get(end));
-//						p.set(end, temp);
-//					}
-//				}
-//			}
-//		}
-//		
-//	}
 
+	/**
+	 * Gets the completely sorted list
+	 * @return the sorted list
+	 */
 	public ArrayList<Point> getSorted() {
 		return sorted;
 	}
 	
+	/**
+	 * Performs a merge sort on all the points and sorts then by Y-value in
+	 * descending order.
+	 * @param p the unsorted list of points
+	 * @return the sorted list of points
+	 */
 	private ArrayList<Point> sort(ArrayList<Point> p) {
 		// If array size is 1, return
 		if (p.size() <= 1) {
@@ -164,39 +167,19 @@ public class mergeSort {
 		return p;
 	}
 	
+	/**
+	 * A helper method to combine two lists into one sorted list.
+	 * @param f the first half of the list
+	 * @param s the second half of the list
+	 * @param r the combined list
+	 * @return the new list
+	 */
 	private ArrayList<Point> merge(ArrayList<Point> f, ArrayList<Point> s, ArrayList<Point> r) {
 		int findex = 0;
 		int sindex = 0;
 		int rindex = 0;
 		
 		while (findex < f.size() && sindex < s.size()) {
-//			if (f.get(findex).getY() == s.get(sindex).getY()) {
-//				if (f.get(findex).getL().isVertical() 
-//						&& f.get(findex) == f.get(findex).getL().getStart()) {
-//					r.set(rindex, f.get(findex));
-//	                findex++;
-//				}
-//				else if (s.get(sindex).getL().isVertical() 
-//						&& s.get(sindex) == s.get(sindex).getL().getStart()) {
-//					r.set(rindex, s.get(sindex));
-//	                sindex++;
-//				}
-//				else if (!f.get(findex).getL().isVertical() 
-//						&& f.get(findex) == f.get(findex).getL().getStart()) {
-//					r.set(rindex, f.get(findex));
-//	                findex++;
-//				}
-//				else if(!s.get(sindex).getL().isVertical() 
-//						&& s.get(sindex) == s.get(sindex).getL().getStart()) {
-//					r.set(rindex, s.get(sindex));
-//	                sindex++;
-//				}
-//				else {
-//					r.set(rindex, f.get(findex));
-//	                findex++;
-//				}
-//			}
-//			else 
 			if (f.get(findex).getY() >= s.get(sindex).getY()) {
                 r.set(rindex, f.get(findex));
                 findex++;
