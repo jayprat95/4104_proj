@@ -28,7 +28,7 @@ public class mainClass
         long endTime = System.currentTimeMillis();
 
         for(Intersection i: bruteintersects) {
-            System.out.println("L1: " + i.getL1().toString() + " L2: " + i.getL2().toString());
+            System.out.println("L1: " + i.getL1().toString() + " L2: " + i.getL2().toString() + "Intersection Point: " + i.getIntersect().toString());
         }
         System.out.println("There are " + bruteintersects.size() + " intersections");
         System.out.println("The Bruteforce took " + (endTime - startTime) + " milliseconds");
@@ -42,7 +42,7 @@ public class mainClass
         endTime = System.currentTimeMillis();
 
         for(Intersection i: sweepintersects) {
-            System.out.println("L1: " + i.getL1().toString() + " L2: " + i.getL2().toString());
+            System.out.println("L1: " + i.getL1().toString() + " L2: " + i.getL2().toString() + "Intersection Point: " + i.getIntersect().toString());
         }
 
         System.out.println("There are " + sweepintersects.size() + " intersections");
