@@ -27,14 +27,24 @@ public class mainClass
         ArrayList<Intersection> bruteintersects = force.bruteForceCall(gen.lineList);
         long endTime = System.currentTimeMillis();
 
+        for(Intersection i: bruteintersects) {
+            System.out.println("L1: " + i.getL1().toString() + " L2: " + i.getL2().toString());
+        }
         System.out.println("There are " + bruteintersects.size() + " intersections");
         System.out.println("The Bruteforce took " + (endTime - startTime) + " milliseconds");
 
         lineSweep sweep = new lineSweep(gen.pointList);
 
+
+
         startTime = System.currentTimeMillis();
         ArrayList<Intersection> sweepintersects = sweep.generateIntersections();
         endTime = System.currentTimeMillis();
+
+        for(Intersection i: sweepintersects) {
+            System.out.println("L1: " + i.getL1().toString() + " L2: " + i.getL2().toString());
+        }
+
         System.out.println("There are " + sweepintersects.size() + " intersections");
         System.out.println("The Line Sweep took " + (endTime - startTime) + " milliseconds");
 
